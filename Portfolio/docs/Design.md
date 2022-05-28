@@ -1,4 +1,4 @@
-# Design - [Porfolio](../README.md)
+# Design - [Porfolio](Portfolio.md)
 
 ## Inspiration
 - <http://findmatthew.com/>
@@ -23,4 +23,4 @@ We use [Bulma](https://bulma.io/), as refererd in [Technologies](Technologies.md
 ## Pages
 - [Home Page](Home%20Page.md)
 
-## [Back](../README.md#design)
+## [Back](Portfolio.md#design)

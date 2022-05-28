@@ -1,4 +1,4 @@
-# Technologies -[Porfolio](../README.md)
+# Technologies - [Porfolio](Portfolio.md)
 
 ## Back-End
  - [TypeScript](https://www.typescriptlang.org/)
@@ -14,4 +14,4 @@
 
 > I recommend to use [Adonuxt Template](https://github.com/nuxt-community/adonuxt-template) in order to get the best of [AdonisJS](https://adonisjs.com/) and [Vue.js](https://vuejs.org/).
 
-## [Back](../README.md#for%20developers)
+## [Back](Portfolio.md#for%20developers)

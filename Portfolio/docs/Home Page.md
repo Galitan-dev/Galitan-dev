@@ -1,4 +1,4 @@
-# Home Page - [Porfolio](../README.md)
+# Home Page - [Porfolio](Portfolio.md)
 
 ## Top page
 
@@ -54,4 +54,4 @@ A sort option would be great
 - Linkedin: <https://www.linkedin.com/in/galitan-coys-766697234/>
 - Mail: <galitan.dev@gmail.com>
 
-## [Back](../README.md#pages)
+## [Back](Portfolio.md#pages)

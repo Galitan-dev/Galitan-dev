@@ -1,0 +1,35 @@
+# Portfolio 
+
+## Features
+
+ 1. [Home Page](Home%20Page.md)
+	- Presentation
+	- Skills 
+	- Project Gallery 
+	- Contact
+2. Account System 
+	- Authentification
+		- Google
+		- Apple 
+		- GitHub 
+		- Discord
+	- Dashboard
+	- Adpin panel 
+3. Blog
+ 	- Markdown
+	- Comments 
+4. Chat
+	- Online People 
+	- Websocket
+
+## Design
+
+A mix of the following websites:
+- <http://findmatthew.com/>
+- <https://jacekjeznach.com/>
+- <https://brittanychiang.com/>
+
+[Read more](Design.md)
+
+## For developers
+- [Technologies](Technologies.md)
