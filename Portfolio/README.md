@@ -2,7 +2,7 @@
 
 ## Features
 
- 1. [[Home Page]]
+ 1. [Home Page](docs/Home%20Page.md)
 	- Presentation
 	- Skills 
 	- Project Gallery 
