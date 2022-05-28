@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "7cd659a11203c842",
+    "type": "split",
+    "children": [
+      {
+        "id": "751ac676c2b6093f",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Technologies.md",
+            "mode": "preview",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c9b55533854b8e3c",
+    "type": "split",
+    "children": [
+      {
+        "id": "52cfda5bfafe3096",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "53abd344cc804da5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "3b89125ae4e679cd",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "cc29faf843309ec4",
+    "type": "split",
+    "children": [
+      {
+        "id": "44adfa8a655532cc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8f61b19f9479a34d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Technologies.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "751ac676c2b6093f",
+  "lastOpenFiles": [
+    "Technologies.md",
+    "Design.md"
+  ]
+}
