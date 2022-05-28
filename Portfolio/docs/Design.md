@@ -6,7 +6,7 @@
 - <https://brittanychiang.com/>
 
 ## Color palette
-![[Color Palette.svg|Color palette]]
+![Color palette](Color%20Palette.svg)
 See on [coolors.co](https://coolors.co/palette/f72585-7209b7-3a0ca3-4361ee-4cc9f0)
 ```less
 $flickr-pink: #f72585ff; 
