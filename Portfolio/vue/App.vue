@@ -11,17 +11,3 @@ export default {
   },
 }
 </script>
-
-<style lang="less">
-a {
-  border: 1px solid black;
-  width: 100px;
-  background: gray;
-  padding: 5px 10px;
-  text-align: center;
-
-  &.active {
-    background: tomato;
-  }
-}
-</style>

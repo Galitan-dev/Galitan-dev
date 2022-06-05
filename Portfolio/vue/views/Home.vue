@@ -5,6 +5,7 @@
     <hello-world />
 
     <router-link to="/about">Go to About page</router-link>
+    <router-link to="/demo">See a great bulma demo page</router-link>
   </div>
 </template>
 

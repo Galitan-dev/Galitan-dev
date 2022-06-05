@@ -17,16 +17,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="less">
-.hello-world-component {
-  width: 70%;
-
-  h2 {
-    border: 1px dashed coral;
-    background: brown;
-    color: white;
-    text-align: center;
-  }
-}
-</style>

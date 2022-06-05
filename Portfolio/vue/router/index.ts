@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import About from '../views/About.vue'
+import Demo from '../views/Demo.vue'
 import Home from '../views/Home.vue'
 import NotFound from '../views/NotFound.vue'
 
@@ -15,6 +16,11 @@ export default createRouter({
       path: '/about',
       name: 'About',
       component: About,
+    },
+    {
+      path: '/demo',
+      name: 'Demo',
+      component: Demo,
     },
     // Should be the last route to handle 404
     {
