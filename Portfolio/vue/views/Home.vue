@@ -2,16 +2,15 @@
   <div>
     <h2>{{ homePageMessage }}</h2>
 
-    <hello-world />
+    <HelloWorld />
 
-    <router-link to="/about">Go to About page</router-link>
-    <router-link to="/demo">See a great bulma demo page</router-link>
+    <RouterLink to="/about">Go to About page</RouterLink>
+    <RouterLink to="/demo">See a great bulma demo page</RouterLink>
   </div>
 </template>
 
 <script lang="ts">
-import HelloWorld from '../components/HelloWorld.vue'
-
+import HelloWorld from 'Components/HelloWorld.vue'
 export default {
   name: 'Home',
 

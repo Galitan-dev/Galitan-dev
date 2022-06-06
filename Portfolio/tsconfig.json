@@ -23,7 +23,16 @@
       ],
       "Database/*": [
         "./database/*"
-      ]
+      ],
+      "Components/*": [
+        "./vue/components"
+      ],
+      "Resources/*": [
+        "./resources"
+      ],
+      "Views/*": [
+        "./vue/views"
+      ],
     },
     "types": [
       "@adonisjs/core",

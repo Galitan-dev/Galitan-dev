@@ -209,13 +209,21 @@ config.infrastructureLogging = {
   level: 'warn',
 }
 config.stats = 'errors-warnings'
+config.resolve = {
+  alias: {
+    Components: join(__dirname, 'vue/components'),
+    Resources: join(__dirname, 'resources'),
+    Views: join(__dirname, 'vue/views'),
+  },
+  extensions: ['.js', '.ts', '.vue', '.json', '.sass', '.scss', '.less'],
+}
 
 /*
-|--------------------------------------------------------------------------
-| Export config
-|--------------------------------------------------------------------------
-|
-| Export config for webpack to do its job
-|
-*/
+  |--------------------------------------------------------------------------
+  | Export config
+  |--------------------------------------------------------------------------
+  |
+  | Export config for webpack to do its job
+  |
+  */
 module.exports = config
