@@ -2,6 +2,7 @@ import About from 'Views/About.vue'
 import Demo from 'Views/Demo.vue'
 import Home from 'Views/Home.vue'
 import NotFound from 'Views/NotFound.vue'
+import Objectives from 'Views/Objectives.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 export default createRouter({
@@ -21,6 +22,11 @@ export default createRouter({
       path: '/demo',
       name: 'Demo',
       component: Demo,
+    },
+    {
+      path: '/objectives',
+      name: 'Objectives',
+      component: Objectives,
     },
     // Should be the last route to handle 404
     {

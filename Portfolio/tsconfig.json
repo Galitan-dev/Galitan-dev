@@ -8,6 +8,9 @@
     "build"
   ],
   "compilerOptions": {
+    "lib": [
+      "dom"
+    ],
     "outDir": "build",
     "rootDir": "./",
     "sourceMap": true,
