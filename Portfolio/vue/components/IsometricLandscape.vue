@@ -4,13 +4,13 @@
 <script lang="ts">
 import P5 from 'p5';
 
-const WIDTH = 30;
-const HEIGHT = 10;
-const DEPTH = 30;
-const SURFACE_Y = 3;
+const WIDTH = 40;
+const HEIGHT = 20;
+const DEPTH = 40;
+const SURFACE_Y = 8;
 const BLOCK_SIZE = 15;
 const SEA_LEVEL = 7;
-const DIRT_LAYER = 4;
+const DIRT_LAYER = 2;
 
 const enum Block {
   AIR,
@@ -19,7 +19,30 @@ const enum Block {
   DIRT,
   GRASS,
   SAND,
-}
+  WOOD,
+  LEAVES,
+};
+
+const tree: Structure = {
+  [Block.WOOD]: [
+    [0, 0, 0],
+    [0, 1, 0],
+    [0, 2, 0],
+    [0, 3, 0],
+  ],
+
+  [Block.LEAVES]: [
+    [1, 2, 0],
+    [-1, 2, 0],
+    [1, 3, 0],
+    [-1, 3, 0],
+    [0, 2, 1],
+    [0, 2, -1],
+    [0, 3, 1],
+    [0, 3, -1],
+    [0, 4, 0]
+  ]
+};
 
 export default {
   name: "IsometricLandscape",
@@ -27,9 +50,12 @@ export default {
   data() {
     return {
       blocks: new Array(WIDTH).fill(null).map(() => // X
-        new Array(HEIGHT).fill(null).map(() =>       // Y
-          new Array(DEPTH).fill(Block.AIR)            // Z
+        new Array(HEIGHT).fill(null).map(() =>      // Y
+          new Array(DEPTH).fill(Block.AIR)          // Z
         )
+      ),
+      surfacesY: new Array(WIDTH).fill(null).map(() => // X
+        new Array(HEIGHT).fill(SURFACE_Y)              // Z
       )
     }
   },
@@ -39,30 +65,77 @@ export default {
       p.angleMode(p.DEGREES);
       p.createCanvas(1400, 750);
 
-      p.noiseSeed(3)
       this.generateWorld(p);
+      // p.noLoop();
     },
 
-    generateWorld(p: P5) {
-      for (let x = 0; x < WIDTH; x++) for (let y = 0; y < HEIGHT; y++) for (let z = 0; z < DEPTH; z++) {
-        this.blocks[x][y][z] = this.getBlock(p, x, y, z)
+    generateDecorations(p: P5) {
+      for (let x = 0; x < WIDTH; x++) for (let z = 0; z < DEPTH; z++) {
+        const surfaceY = this.surfacesY[x][z];
+
+        // Trees
+        if (surfaceY > SEA_LEVEL && p.floor(surfaceY * 100) % 50 == 0) {
+          this.summon(tree, x, p.ceil(surfaceY), z)
+        }
       }
     },
 
-    getBlock(p: P5, x: number, y: number, z: number) {
-      let surfaceY = SURFACE_Y + p.noise((x + p.frameCount) / 30, z / 30) * 20 - HEIGHT / 2;
+    updateWorld(p: P5) {
+      this.blocks.shift();
+      this.blocks[WIDTH - 1] = new Array(HEIGHT).fill(null).map(() => new Array(DEPTH).fill(Block.AIR))
+      this.surfacesY.shift();
+      this.surfacesY[WIDTH - 1] = new Array(HEIGHT).fill(SURFACE_Y);
+      this.generateLine(p, WIDTH - 1)
+      this.generateDecorations(p);
+    },
+
+    generateWorld(p: P5) {
+      for (let x = 0; x < WIDTH; x++) {
+        this.generateLine(p, x);
+      }
+
+      this.generateDecorations(p);
+    },
+
+    generateLine(p: P5, x: number) {
+      // Terrain Shaping
+      for (let z = 0; z < DEPTH; z++) {
+        this.surfacesY[x][z] = this.getSurfaceY(p, x + p.frameCount, z);
+      }
+
+      // Block Types
+      for (let y = 0; y < HEIGHT; y++) for (let z = 0; z < DEPTH; z++) {
+        this.blocks[x][y][z] = this.getBlock(x, y, z)
+      }
+    },
+
+    summon(structure: Structure, x: number, y: number, z: number) {
+      for (const block in structure) for (const [bx, by, bz] of structure[block]) try {
+        this.blocks[x + bx][y + by][z + bz] = parseInt(block);
+      } catch { }
+    },
+
+    getSurfaceY(p: P5, x: number, z: number) {
+      let surfaceY = SURFACE_Y + p.noise(x / 30, z / 30) * 20 - HEIGHT / 2;
       if (surfaceY > HEIGHT) surfaceY = HEIGHT;
+      return surfaceY;
+    },
+
+    getBlock(x: number, y: number, z: number) {
+      const surfaceY = this.surfacesY[x][z];
       const yDiff = surfaceY - y;
 
       if (yDiff < 0 && y < SEA_LEVEL) return Block.WATER;
       if (yDiff > DIRT_LAYER + 1) return Block.STONE;
       if (yDiff > 1) return Block.DIRT;
+      if (yDiff > 0 && y < SEA_LEVEL - 1) return Block.SAND;
       if (yDiff > 0) return Block.GRASS;
+
       return Block.AIR;
     },
 
     draw(p: P5) {
-      this.generateWorld(p);
+      // this.updateWorld(p);
       p.background('#449EFF');
 
       p.fill("#ddeeff")
@@ -110,11 +183,23 @@ export default {
           break;
 
         case Block.GRASS:
-          color = [40, 130, 70];
+          color = [60, 150, 90];
+          break;
+
+        case Block.LEAVES:
+          color = [80, 180, 110];
           break;
 
         case Block.DIRT:
-          color = [110, 60, 5];
+          color = [130, 80, 25];
+          break;
+
+        case Block.SAND:
+          color = [240, 210, 90];
+          break;
+
+        case Block.WOOD:
+          color = [90, 70, 15];
           break;
 
         default: return;
@@ -185,6 +270,10 @@ export default {
       p5.draw = () => this.draw(p5)
     })
   }
+}
+
+declare type Structure = {
+  [key in Block]?: [number, number, number][]
 }
 
 </script>
